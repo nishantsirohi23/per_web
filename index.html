@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title>Perpenny | Superstore of Services</title>
+
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="slicers/style.css">
+
+    <style>
+      .dialog-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .dialog-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            width: 300px;
+        }
+        .dialog-box h2 {
+            margin-top: 0;
+        }
+        .dialog-button {
+            background-color: white;
+            border: 2px solid rgb(241, 78, 217);
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+            margin: 10px;
+            display: inline-block;
+            width: 200px;
+        }
+        .dialog-button:hover {
+            background-color: #007BFF;
+            color: white;
+        }
+        .close-button {
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 30px;
+            position:relative;
+            cursor: pointer;
+        }
+      body {
+          margin: 0;
+          padding: 0;
+      }
+      video {
+          width: 100%;
+          height: auto;
+          display: block;
+      }
+      .carousels {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.carousel-containers {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slides img {
+  height: 190px;
+  width: 20%;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .carousel-slides img {
+      width: 25%; /* Adjust width for large tablets and small desktops */
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-slides img {
+      width: 33.33%; /* Adjust width for medium tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slides img {
+      width: 50%; /* Adjust width for small tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-slides img {
+      width: 100%; /* Adjust width for mobile phones */
+  }
+}
+  </style>
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,300&amp;display=swap" rel="stylesheet">
+    <link href="assets/css/theme.min.css" rel="stylesheet" />
+    <link href="assets/css/user.min.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="light">
+    <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="assets/img/icons/Logo.png" height="35" alt="logo" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto pt-2 pt-lg-0 font-base align-items-center">
+                <li class="nav-item"><a class="nav-link px-3" href="#product">Product</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#customers">Features</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#docs">Docs</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="terms.html">Terms</a></li>
+                <button class="dialog-button" onclick="openDialog()">INSTALL NOW</button>
+                <div class="dialog-overlay" id="dialogOverlay">
+                  <div class="dialog-box">
+                      <button class="close-button" onclick="closeDialog()">&times;</button>
+                      <h2>Download Our App</h2>
+                      <button class="dialog-button" onclick="downloadApp('android')">Android</button>
+                      <button class="dialog-button" onclick="downloadApp('ios')">iOS</button>
+                  </div>
+              </div>
+              </ul>
+        </div>
+    </div>
+</nav>
+
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+
+    
+        <div style="height: 50px; background-color: transparent;"></div>
+        <div class="carousel">
+          <div style="height: 50px; background-color: transparent;"></div>
+          <div class="list">
+              <div class="item">
+                  <img src="slicers/images/img1.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Maid, Driver, Cook</div>
+                      <div class="des">
+                          Connect with skilled professionals for permanent basis services like maids, drivers, cooks, nannies, househelp, and more.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">Professional Services</div>
+                      <div class="des">
+                          Get permanent basis services for your household needs. Find reliable maids, drivers, cooks, nannies, househelp, and other professionals.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                        <button>INQUIRE</button>
+                        <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item">
+                  <img src="slicers/images/img2.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Device Repair</div>
+                      <div class="des">
+                          Repair any device including phones, laptops, washing machines, mixers, and more.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">Comprehensive Repair Services</div>
+                      <div class="des">
+                          Our professionals repair all types of devices including smartphones, laptops, washing machines, mixers, and more. Quick and efficient service at your convenience.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                        <button>INQUIRE</button>
+                        <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item">
+                  <img src="slicers/images/img3.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Plumber, Carpenter, Mechanic</div>
+                      <div class="des">
+                          Get a plumber, carpenter, mechanic, painter, electrician, and others in 1 hour at your doorstep.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">On-Demand Services</div>
+                      <div class="des">
+                          Find and book plumbers, carpenters, mechanics, painters, electricians, and other professionals for immediate services.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                        <button>INQUIRE</button>
+                        <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item">
+                  <img src="slicers/images/img4.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Auto, Bike, Taxi Booking</div>
+                      <div class="des">
+                          Book auto, bike, and taxi rides easily and quickly from the app.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">Ride Booking</div>
+                      <div class="des">
+                          Conveniently book auto, bike, and taxi rides through our app for quick and reliable transportation.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                        <button>INQUIRE</button>
+                        <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item">
+                  <img src="slicers/images/img5.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Pick Up and Delivery</div>
+                      <div class="des">
+                          Get pick-up and delivery services for your convenience. From groceries to documents, we deliver it all.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">Delivery Services</div>
+                      <div class="des">
+                          Our pick-up and delivery services ensure that your groceries, documents, and other items are delivered quickly and safely.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                        <button>INQUIRE</button>
+                        <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+      
+              <div class="item">
+                  <img src="slicers/images/img6.png">
+                  <div class="introduce">
+                      <div class="title">PERPENNY</div>
+                      <div class="topic">Local Stores</div>
+                      <div class="des">
+                          Shop from your local supermarkets, jewellery stores, and other stores directly from the app.
+                      </div>
+                      <button class="seeMore">SEE MORE &#8599</button>
+                  </div>
+                  <div class="detail">
+                      <div class="title">Item Stores</div>
+                      <div class="des">
+                          Buy items from your local supermarkets, jewellery stores, and more through our app for a seamless shopping experience.
+                      </div>
+                      <div style="height: 30px; background-color: transparent;"></div>
+                      <div class="checkout">
+                          <button>INQUIRE</button>
+                          <button>INTSTALL NOW</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="arrows">
+              <button id="prev"><</button>
+              <button id="next">></button>
+              <button id="back">See All  &#8599</button>
+          </div>
+      </div>
+      <div style="height: 80px; background-color: transparent;"></div>
+      <div class="carousels">
+        <div class="carousel-containers">
+            <div class="carousel-slides">
+                <!-- Add 25 assets/imgs here -->
+                <img src="assets/img1.jpg" alt="assets/img 1">
+                <img src="assets/img2.jpg" alt="assets/img 2">
+                <img src="assets/img3.jpg" alt="assets/img 3">
+                <img src="assets/img4.jpg" alt="assets/img 4">
+                <img src="assets/img5.jpg" alt="assets/img 5">
+                <img src="assets/img6.jpg" alt="assets/img 6">
+                <img src="assets/img7.jpg" alt="assets/img 7">
+                <img src="assets/img8.jpg" alt="assets/img 8">
+                <img src="assets/img9.jpg" alt="assets/img 9">
+                <img src="assets/img10.jpg" alt="assets/img 10">
+                <img src="assets/img11.jpg" alt="assets/img 11">
+                <img src="assets/img12.jpg" alt="assets/img 12">
+                <img src="assets/img13.jpg" alt="assets/img 13">
+                <img src="assets/img14.jpg" alt="assets/img 14">
+                <img src="assets/img15.jpg" alt="assets/img 15">
+                <img src="assets/img16.jpg" alt="assets/img 16">
+                <img src="assets/img17.jpg" alt="assets/img 17">
+                <img src="assets/img18.jpg" alt="assets/img 18">
+                <img src="assets/img19.jpg" alt="assets/img 19">
+                <img src="assets/img20.jpg" alt="assets/img 20">
+                
+                <!-- Repeat all 25 assets/imgs again -->
+                <img src="assets/img1.jpg" alt="assets/img 1">
+                <img src="assets/img2.jpg" alt="assets/img 2">
+                <img src="assets/img3.jpg" alt="assets/img 3">
+                <img src="assets/img4.jpg" alt="assets/img 4">
+                <img src="assets/img5.jpg" alt="assets/img 5">
+                <img src="assets/img6.jpg" alt="assets/img 6">
+                <img src="assets/img7.jpg" alt="assets/img 7">
+                <img src="assets/img8.jpg" alt="assets/img 8">
+                <img src="assets/img9.jpg" alt="assets/img 9">
+                <img src="assets/img10.jpg" alt="assets/img 10">
+                <img src="assets/img11.jpg" alt="assets/img 11">
+                <img src="assets/img12.jpg" alt="assets/img 12">
+                <img src="assets/img13.jpg" alt="assets/img 13">
+                <img src="assets/img14.jpg" alt="assets/img 14">
+                <img src="assets/img15.jpg" alt="assets/img 15">
+                <img src="assets/img16.jpg" alt="assets/img 16">
+                <img src="assets/img17.jpg" alt="assets/img 17">
+                <img src="assets/img18.jpg" alt="assets/img 18">
+                <img src="assets/img19.jpg" alt="assets/img 19">
+                <img src="assets/img20.jpg" alt="assets/img 20">
+                
+            </div>
+        </div>
+    </div>
+      
+        <section id="product">
+          <div class="container">
+              <div class="row mb-4">
+                  <div class="col-md-6 h-100 text-center text-md-start p-0 p-md-5 pb-3">
+                      <h2 class="mt-3">Streamline Your Daily Tasks with PerPenny</h2>
+                      <p class="mb-0">PerPenny connects you with skilled professionals for a wide range of services, ensuring your tasks are handled efficiently and effectively.</p>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="w-100 h-100 p-5 services-card-shadow rounded-4">
+                          <img src="assets/img/icons/1.png" alt="Task Management" style="width:95px;" />
+                          <h3 class="mt-3 lh-base">Professional Task Management</h3>
+                          <p class="mb-0">Our platform allows you to easily book professionals for any task, from home repairs to personal assistance, all at your convenience.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="row mb-4">
+                  <div class="col-md-6">
+                      <div class="w-100 h-100 p-5 services-card-shadow rounded-4">
+                          <img src="assets/img/icons/2.png" alt="Flexible Hiring" style="width:95px;" />
+                          <h3 class="mt-3 lh-base">Flexible Hiring Options</h3>
+                          <p class="mb-0">Choose from hourly, per-task, or full-time hiring options to suit your needs and ensure you have the right support when you need it.</p>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="w-100 h-100 p-5 services-card-shadow rounded-4">
+                          <img src="assets/img/icons/3.png" alt="Business Growth" style="width:95px;" />
+                          <h3 class="mt-3 lh-base">Enhance Your Business</h3>
+                          <p class="mb-0">Leverage our platform to boost your business's efficiency and growth, with access to a network of skilled professionals ready to assist.</p>
+                      </div>
+                  </div>
+              </div>
+          </div><!-- end of .container-->
+      </section>
+      <!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section id="customers">
+          <div class="container">
+              <h1 class="text-center display-5 fw-semi-bold" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">PerPenny - Your Trusted Partner for Professional Services</h1>
+              <p class="text-center fs-0 fs-md-1" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">
+                  Discover how PerPenny connects you with skilled professionals for a wide range of services. 
+                  Whether you need help with home repairs, personal assistance, or business support, 
+                  PerPenny is here to make your life easier.
+              </p>
+              <div class="row mb-4 mt-6">
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/4.png" alt="Professional Services" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Wide Range of Services</h4>
+                      <p class="fs-0">From home repairs to personal assistance, find the help you need.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/5.png" alt="Flexible Hiring" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Flexible Hiring Options</h4>
+                      <p class="fs-0">Choose from hourly, per-task, or full-time hiring to suit your needs.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/6.png" alt="Trustworthy Professionals" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Trusted Professionals</h4>
+                      <p class="fs-0">All our professionals are vetted to ensure high-quality service.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/7.png" alt="Easy Booking" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Easy Booking</h4>
+                      <p class="fs-0">Book services quickly and easily through our user-friendly platform.</p>
+                  </div>
+              </div>
+              <div class="row mb-6">
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/8.png" alt="Customer Support" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">24/7 Customer Support</h4>
+                      <p class="fs-0">Get assistance anytime with our dedicated customer support team.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/9.png" alt="Business Growth" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Boost Your Business</h4>
+                      <p class="fs-0">Leverage our platform to increase efficiency and grow your business.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/10.png" alt="Tailored Services" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Tailored Services</h4>
+                      <p class="fs-0">Customize services to meet your specific needs and preferences.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/11.png" alt="Easy Payments" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Secure Payments</h4>
+                      <p class="fs-0">Enjoy secure and hassle-free payments for all services booked.</p>
+                  </div>
+              </div>
+              <div class="row mb-6">
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/12.png" alt="Verified Professionals" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Verified Professionals</h4>
+                      <p class="fs-0">Work with verified and trustworthy professionals.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/13.png" alt="Custom Solutions" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Custom Solutions</h4>
+                      <p class="fs-0">Get custom solutions tailored to your business needs.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/14.png" alt="Mobile App" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Mobile App</h4>
+                      <p class="fs-0">Manage your bookings and services on the go with our app.</p>
+                  </div>
+                  <div class="col-md-6 col-lg-3 text-center">
+                      <img src="assets/img/icons/15.png" alt="Global Reach" style="width:95px;" />
+                      <h4 class="mt-3 lh-base">Global Reach</h4>
+                      <p class="fs-0">Access services and professionals from around the world.</p>
+                  </div>
+              </div>
+          </div><!-- end of .container-->
+      </section>
+      <!-- <section> close ============================--
+      <!-- ============================================-->
+      <div id="header"></div>
+      <div style="display: flex; justify-content: space-around; align-items: center; height: 20vh;">
+        <div style="text-align: center;">
+            <h1 id="counter1" class="fs-4 fs-md-5 fs-xxl-4" style="margin: 0;" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">0</h1>
+            <div>Downloads on Google Play Store and Apple App Store</div>
+        </div>
+        <div style="text-align: center;">
+            <h1 id="counter2" class="fs-4 fs-md-5 fs-xxl-4" style="margin: 0;" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">0</h1>
+            <div>Impressions and reach on Social Media</div>
+        </div>
+        <div style="text-align: center;">
+            <h1 id="counter3" class="fs-4 fs-md-5 fs-xxl-4" style="margin: 0;" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">0</h1>
+            <div>Orders and repairs on everyday basis</div>
+        </div>
+    </div>
+
+    <script>
+        function animateCounter(id, start, end, duration) {
+            const element = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start) + "+";
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    let endValue;
+                    switch (id) {
+                        case "counter1":
+                            endValue = 10000;
+                            break;
+                        case "counter2":
+                            endValue = 550000;
+                            break;
+                        case "counter3":
+                            endValue = 30;
+                            break;
+                    }
+                    animateCounter(id, 0, endValue, 2000);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver(handleIntersection, {
+                threshold: 0.5 // Trigger when 50% of the element is visible
+            });
+
+            // Start observing the counters
+            observer.observe(document.getElementById("counter1"));
+            observer.observe(document.getElementById("counter2"));
+            observer.observe(document.getElementById("counter3"));
+        });
+    </script>
+   
+      <div id="review"></div>
+
+      <video width='100%' height="360" autoplay loop muted>
+        <source src="images/video1.mp4" type="video/mp4">
+    </video>
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+        <section id="pricing">
+          <div class="container">
+              <div class="row flex-center">
+                  <div class="col-md-6 text-center text-md-start">
+                      <h4 class="fw-normal fs-3" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Your convenience is always a top priority</h4>
+                      <p class="fs-0 pe-xl-8" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">We are committed to helping you connect with skilled professionals for all your needs.</p>
+                      <div class="d-flex justify-content-space-between align-items-center my-3 mt-2">
+                          <div>
+                              <h4 class="fw-normal fs-1">Request Services</h4>
+                              <p class="my-1 fs-0 pe-xl-8">Request services whenever you need them. Find professionals around you.</p>
+                          </div>
+                          <div>
+                              <h4 class="fw-normal fs-1">Provide Services</h4>
+                              <p class="my-1 fs-0 pe-xl-8">Offer your skills and services to those in need through our platform.</p>
+                          </div>
+                      </div>
+                      <button class="btn btn-sm btn-primary my-4 me-1" href="#!" role="button">Get started</button>
+                      <a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+                  <div class="col-md-6 mb-4">
+                      <img class="w-100" src="assets/img/illustration/4.png" alt="..." />
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <section>
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-md-6 mb-4">
+                      <img class="w-100" src="assets/img/illustration/5.png" alt="..." />
+                  </div>
+                  <div class="col-md-6 text-center text-md-start">
+                      <h4 class="fs-3 fw-normal" data-zanim-xs='{"delay":0.3}' data-zanim-trigger="scroll">Move forward with ease</h4>
+                      <p class="fs-0 pe-xl-7" data-zanim-xs='{"delay":0.5}' data-zanim-trigger="scroll">Opportunity is everywhere. Find it with PerPenny.</p>
+                      <div class="d-flex justify-content-center align-items-center my-3 mt-2">
+                          <div>
+                              <h4 class="fw-normal fs-1">Explore Opportunities</h4>
+                              <p class="my-1 fs-0 pe-xl-8">Discover opportunities that match your skills and interests.</p>
+                          </div>
+                          <div>
+                              <h4 class="fw-normal fs-1">Grow Your Network</h4>
+                              <p class="my-1 fs-0 pe-xl-8">Connect with other professionals and expand your network.</p>
+                          </div>
+                      </div>
+                      <button class="btn btn-sm btn-primary btn-bg-purple my-4 me-1" href="#!" role="button">Get started</button>
+                      <a class="btn btn-sm my-2 btn-default" href="#" role="button">Questions? Talk to our team<i class="fas fa-arrow-right ms-2"></i></a>
+                  </div>
+              </div>
+          </div>
+      </section>
+      
+      <section class="p-0" id="docs">
+          <div class="bg-holder d-none d-lg-block" style="background-image:url(assets/img/illustration/6.png);background-position:right top;background-size:contain;"></div>
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-12 col-lg-7 col-xl-5 text-lg-start text-center">
+                      <h1 class="fs-3 fw-normal mt-6">Simplify Your Tasks with PerPenny</h1>
+                      <p class="fs-0">PerPenny helps you manage tasks efficiently, making data-driven decisions on whether you should be focusing on new projects or improving existing ones.</p>
+                  </div>
+              </div>
+              <div class="row align-items-center mt-7">
+                  <h4 class="fs-2 fw-normal">Save Time</h4>
+                  <ul class="list-unstyled py-3">
+                      <li class="mb-3 text-900"><span class="far fa-check-circle text-700 me-2"></span>Intuitive process and single interface</li>
+                      <li class="mb-3 text-900"><span class="far fa-check-circle text-700 me-2"></span>Online and paperless</li>
+                      <li class="mb-3 text-900"><span class="far fa-check-circle text-700 me-2"></span>Real-time notifications</li>
+                  </ul>
+              </div>
+          </div>
+      </section>
+      
+      
+      
+
+      <!-- ============================================-->
+      <!-- <section> begin ============================-->
+      <section class="bg-200" id="cta">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <h2 class="fw-bold text-black">Ready to get started?</h2>
+              <p>Request a callback from our team</p>
+            </div>
+            <div class="col-lg-6 h-100">
+              <div class="input-group"> <input class="form-control" type="text" placeholder="Email Address" /><button class="btn btn-primary rounded-start-0 px-3" type="submit">Get Started</button></div>
+            </div>
+          </div>
+        </div><!-- end of .container-->
+      </section><!-- <section> close ============================-->
+      <!-- ============================================-->
+
+      <section class="py-0 bg-1000">
+        <div class="container">
+          <div class="row py-7">
+            <div class="col-12 col-sm-12 col-lg-6 mb-4 order-0 order-sm-0"><a class="text-decoration-none" href="#"><img src="assets/img/icons/Logo2.png" height="51" alt="" /></a>
+              <p class="text-light mt-4 mb-0">IND: +91 89236 98570</p>
+              <p class="text-light mt-5">contact@perpenny.in</p>
+              <div class="d-flex"><a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/linkedin-line1.svg" alt="in" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/facebook-line1.svg" alt="fb" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="#!"><img class="me-xl-3 me-1" src="assets/img/gallery/twitter-line1.svg" alt="twitter" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a><a href="https://www.instagram.com/perpennyworks/"><img class="me-xl-3 me-1" src="assets/img/gallery/instagram-line1.svg" alt="instragram" width:'20px'="width:'20px'" height:'20px'="height:'20px'" /></a></div>
+            </div>
+            <div class="col-3 col-sm-4 col-lg-2 mb-3 order-2 order-sm-1">
+              <h5 class="lh-lg fw-bold text-light font-sans-serif">About Us</h5>
+              <ul class="list-unstyled text-light mb-md-4">
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Newsroom</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Blog</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Gift cards</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Career</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Gohub driving jobs</a></li>
+              </ul>
+            </div>
+          
+            <div class="col-6 col-sm-4 col-lg-2 mb-3 order-3 order-sm-2">
+              <h5 class="lh-lg fw-bold text-light font-sans-serif"> Support</h5>
+              <ul class="list-unstyled text-light mb-md-4 mb-lg-0">
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Terminal Conditions</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">About Us</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Contact US</a></li>
+                <li class="lh-lg"><a class="text-500 footer-link text-light" href="#!">Terms of Use</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-1000">
+          <div class="container">
+            <div class="row justify-content-md-between justify-content-evenly py-3">
+              <div class="col-12 col-sm-8 col-md-6 col-lg-auto text-center text-md-start">
+                <p class="fs--1 my-2 fw-bold text-200">&copy; 2024 Perpenny Works LLP</p>
+              </div>
+              
+            </div>
+          </div><!-- end of .container-->
+        </section><!-- <section> close ============================-->
+        <!-- ============================================-->
+
+      </section>
+    </main><!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendors/popper/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/anchorjs/anchor.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/fontawesome/all.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.0/gsap.min.js"></script>
+    <script src="vendors/imagesloaded/imagesloaded.pkgd.js"></script>
+    <script src="vendors/gsap/customEase.js"></script>
+    <script src="vendors/gsap/scrollToPlugin.js"></script>
+    <script>
+    let nextButton = document.getElementById('next');
+let prevButton = document.getElementById('prev');
+let carousel = document.querySelector('.carousel');
+let listHTML = document.querySelector('.carousel .list');
+let seeMoreButtons = document.querySelectorAll('.seeMore');
+let backButton = document.getElementById('back');
+
+nextButton.onclick = function() {
+    showSlider('next');
+}
+prevButton.onclick = function() {
+    showSlider('prev');
+}
+
+let unAcceppClick;
+const showSlider = (type) => {
+    nextButton.style.pointerEvents = 'none';
+    prevButton.style.pointerEvents = 'none';
+
+    carousel.classList.remove('next', 'prev');
+    let items = document.querySelectorAll('.carousel .list .item');
+    if (type === 'next') {
+        listHTML.appendChild(items[0]);
+        carousel.classList.add('next');
+    } else {
+        listHTML.prepend(items[items.length - 1]);
+        carousel.classList.add('prev');
+    }
+    clearTimeout(unAcceppClick);
+    unAcceppClick = setTimeout(() => {
+        nextButton.style.pointerEvents = 'auto';
+        prevButton.style.pointerEvents = 'auto';
+    }, 2000);
+}
+
+// Automatic sliding
+let autoSlideInterval = setInterval(() => {
+    showSlider('next');
+}, 3000); // Change slides every 3 seconds (3000 milliseconds)
+
+seeMoreButtons.forEach((button) => {
+    button.onclick = function() {
+        carousel.classList.remove('next', 'prev');
+        carousel.classList.add('showDetail');
+        clearInterval(autoSlideInterval); // Stop auto sliding when detail is shown
+    }
+});
+backButton.onclick = function() {
+    carousel.classList.remove('showDetail');
+    autoSlideInterval = setInterval(() => {
+        showSlider('next');
+    }, 3000); // Restart auto sliding when detail is hidden
+}
+
+    </script>
+    <script>
+      function loadHTML(elementId, filePath) {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById(elementId).innerHTML = this.responseText;
+              }
+          };
+          xhttp.open("GET", filePath, true);
+          xhttp.send();
+      }
+
+      loadHTML('header', 'whats.html');
+      
+  </script>
+  <script>
+    function loadHTML(elementId, filePath) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var container = document.getElementById(elementId);
+                var shadow = container.attachShadow({mode: 'open'});
+                var wrapper = document.createElement('div');
+                wrapper.innerHTML = this.responseText;
+                shadow.appendChild(wrapper);
+            }
+        };
+        xhttp.open("GET", filePath, true);
+        xhttp.send();
+    }
+    loadHTML('review','reviewandother/reviewandother.html');
+</script>
+<script>
+    let carouselSlide = document.querySelector('.carousel-slides');
+let images = document.querySelectorAll('.carousel-slides img');
+
+let counter = 0;
+const size = images[0].clientWidth + 20; // +20 for padding
+
+function moveCarousel() {
+    counter++;
+    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+    
+    if (counter >= images.length / 2) { // looping back to the start
+        setTimeout(() => {
+            carouselSlide.style.transition = 'none';
+            counter = 0;
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+        }, 500); // wait for the transition to finish
+    } else {
+        carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+    }
+}
+
+setInterval(moveCarousel, 2000);
+
+</script>
+<script>
+  function openDialog() {
+      document.getElementById('dialogOverlay').style.display = 'flex';
+  }
+
+  function closeDialog() {
+      document.getElementById('dialogOverlay').style.display = 'none';
+  }
+
+  function downloadApp(platform) {
+      if (platform === 'android') {
+          window.location.href = 'https://play.google.com/store/apps/details?id=com.nishantsirohi.perwork';
+      } else if (platform === 'ios') {
+          window.location.href = 'https://apps.apple.com/in/app/perpenny-genie/id6503657159';
+      }
+  }
+</script>
+
+    <!--script(src=`${CWD}vendors/gsap/drawSVGPlugin.js`)-->
+    <script src="assets/js/theme.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="vendors/popper/popper.min.js"></script>
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+    <script src="vendors/is/is.min.js"></script>
+    <script src="vendors/countup/countUp.umd.js"></script>
+    <script src="vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="vendors/lodash/lodash.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="slicers/app.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/click-scroll.js"></script>
+    <script src="js/custom.js"></script>
+  </body>
+
+</html>
