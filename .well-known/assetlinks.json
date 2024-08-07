@@ -1,5 +1,5 @@
 [{
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target" : { "namespace": "android_app", "package_name": "com.nishantsirohi.perwork",
-               "sha256_cert_fingerprints": ["3C:B5:65:89:5F:B4:08:1D:97:30:B8:BC:1E:C3:F3:56:65:CE:8A:3F:51:F4:67:00:07:6F:7A:17:52:F8:43:87"] }
+               "sha256_cert_fingerprints": ["E5:D0:F6:59:E3:A0:93:D5:3D:15:04:AA:91:3D:FC:FB:85:DE:3C:2F:A1:79:40:B2:39:10:92:B9:19:58:63:6E"] }
 }]
