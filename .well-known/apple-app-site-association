@@ -1,0 +1,29 @@
+{
+  "applinks":{
+    "apps":[
+       
+    ],
+    "details":[
+      {
+        "appIDs":[
+          "RL3DPJ37LB.com.work.perpennys"
+        ],
+        "components":[
+          {
+            "/":"/login",
+            "comment":"Matches URL with a path /login"
+          },
+          {
+            "/":"/product/*",
+            "comment":"Matches any URL with a path that starts with /product/."
+          },
+          {
+            "/":"/secret",
+            "exclude":true,
+            "comment":"Matches URL with a path /secret and instructs the system not to open it as a universal link."
+          }
+        ]
+      }
+    ]
+  }
+}
