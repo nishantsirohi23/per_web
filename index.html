@@ -859,6 +859,25 @@ setInterval(moveCarousel, 2000);
       }
   }
 </script>
+    <script>
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+  apiKey: "AIzaSyB_2g6mKXxElqJcgFoOCDcz4KorAFXroJo",
+  authDomain: "perwork.firebaseapp.com",
+  projectId: "perwork",
+  storageBucket: "perwork.appspot.com",
+  messagingSenderId: "1050658836838",
+  appId: "1:1050658836838:web:7285d670926494111b38a7",
+  measurementId: "G-XJWJFVM3DB"
+};
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const analytics = firebase.analytics(app);
+
+        // Log custom event to count site visit
+        analytics.logEvent('site_visit');
+    </script>
 
     <!--script(src=`${CWD}vendors/gsap/drawSVGPlugin.js`)-->
     <script src="assets/js/theme.js"></script>
