@@ -1,26 +1,48 @@
 {
-  "applinks":{
-    "apps":[
-       
-    ],
-    "details":[
+  "applinks": {
+    "apps": [],
+    "details": [
       {
-        "appIDs":[
+        "appIDs": [
           "RL3DPJ37LB.com.work.perpennys"
         ],
-        "components":[
+        "components": [
           {
-            "/":"/login",
-            "comment":"Matches URL with a path /login"
+            "/": "/login",
+            "comment": "Matches URL with a path /login"
           },
           {
-            "/":"/product/*",
-            "comment":"Matches any URL with a path that starts with /product/."
+            "/": "/product/*",
+            "comment": "Matches any URL with a path that starts with /product/."
           },
           {
-            "/":"/secret",
-            "exclude":true,
-            "comment":"Matches URL with a path /secret and instructs the system not to open it as a universal link."
+            "/": "/stores/*",
+            "comment": "Matches any URL with a path that starts with /stores/."
+          },
+          {
+            "/": "/products/*",
+            "comment": "Matches any URL with a path that starts with /products/."
+          },
+          {
+            "/": "/service/*",
+            "comment": "Matches any URL with a path that starts with /service/."
+          },
+          {
+            "/": "/addwork",
+            "comment": "Matches URL with a path /addwork"
+          },
+          {
+            "/": "/trackdelivery/*",
+            "comment": "Matches any URL with a path that starts with /trackdelivery/."
+          },
+          {
+            "/": "/track work/*",
+            "comment": "Matches any URL with a path that starts with /track work/."
+          },
+          {
+            "/": "/secret",
+            "exclude": true,
+            "comment": "Matches URL with a path /secret and instructs the system not to open it as a universal link."
           }
         ]
       }
