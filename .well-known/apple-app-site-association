@@ -12,23 +12,27 @@
             "comment": "Matches URL with a path /login"
           },
           {
-            "/": "/product/*",
+            "/": "/service/*",
             "comment": "Matches any URL with a path that starts with /product/."
           },
           {
-            "/": "/stores/*",
+            "/": "/work/*",
             "comment": "Matches any URL with a path that starts with /stores/."
           },
           {
-            "/": "/products/*",
+            "/": "/prof/*",
             "comment": "Matches any URL with a path that starts with /products/."
           },
           {
-            "/": "/service/*",
+            "/": "/booking/*",
             "comment": "Matches any URL with a path that starts with /service/."
           },
           {
             "/": "/addwork",
+            "comment": "Matches URL with a path /addwork"
+          },
+          {
+            "/": "/hiring",
             "comment": "Matches URL with a path /addwork"
           },
           {
