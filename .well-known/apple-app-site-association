@@ -28,6 +28,18 @@
             "comment": "Matches any URL with a path that starts with /service/."
           },
           {
+            "/": "/images/*",
+            "comment": "Matches any URL with a path that starts with /service/."
+          },
+          {
+            "/": "/rqstadd/*",
+            "comment": "Matches any URL with a path that starts with /service/."
+          },
+          {
+            "/": "/saveadd/*",
+            "comment": "Matches any URL with a path that starts with /service/."
+          },
+          {
             "/": "/addwork",
             "comment": "Matches URL with a path /addwork"
           },
