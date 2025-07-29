@@ -1,5 +1,15 @@
-[{
-  "relation": ["delegate_permission/common.handle_all_urls"],
-  "target" : { "namespace": "android_app", "package_name": "com.nishantsirohi.perwork",
-               "sha256_cert_fingerprints": ["E5:D0:F6:59:E3:A0:93:D5:3D:15:04:AA:91:3D:FC:FB:85:DE:3C:2F:A1:79:40:B2:39:10:92:B9:19:58:63:6E"] }
-}]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nishantsirohi.perwork",
+      "sha256_cert_fingerprints": [
+        "E5:D0:F6:59:E3:A0:93:D5:3D:15:04:AA:91:3D:FC:FB:85:DE:3C:2F:A1:79:40:B2:39:10:92:B9:19:58:63:6E"
+      ]
+    }
+  }
+]
